@@ -6,9 +6,10 @@
     <title>Document</title>
   </head>
   <body>
+    <div id="datalist"></div>
     <script>
       const xhr = new XMLHttpRequest();
-      console.dir(xhr);
+      // console.dir(xhr);
 
       let requestMethod = 'GET';
 
@@ -23,8 +24,21 @@
 
           const data = JSON.parse(xhr.responseText);
           // console.dir(typeof data);
-          console.dir(data);
-          console.dir(data[0].title);
+          // console.dir(data);
+          // console.dir(data[0].title);
+          // console.log(data[0].title);
+
+          const datalist = document.getElementById('datalist');
+
+          let list = [];
+
+          data.forEach((item) => {
+            list.push(`<li>${item.title}</li>`);
+          });
+
+          // console.log(list.join(''));
+
+          datalist.innerHTML = `<ul>${list.join('')}</ul>`;
         }
       });
     </script>
