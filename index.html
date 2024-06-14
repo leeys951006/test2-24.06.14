@@ -16,6 +16,12 @@
 
       xhr.open(requestMethod, requestUrl, true);
       xhr.send();
+
+      xhr.addEventListener('load', () => {
+        if (xhr.status === 200) {
+          console.log('성공');
+        }
+      });
     </script>
   </body>
 </html>
